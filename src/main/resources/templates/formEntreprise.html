@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="template1">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Entreprises</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}"/>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Ajout d'une entreprise</div>
+				<div class="panel-body">
+					<form th:action="@{saveEntreprise}" method="post">
+						<div class="form-group">
+							<label class="control-label">Nom:</label>
+							<input class="form-control" type="text" name="nom" th:value="${entreprise.nom}" />
+							<span class="text-danger" th:errors="${entreprise.nom}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Email:</label>
+							<input class="form-control" type="text" name="email" th:value="${entreprise.email}" />
+							<span class="text-danger" th:errors="${entreprise.email}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Raison sociale:</label>
+							<input class="form-control" type="text" name="raisonSociale" th:value="${entreprise.raisonSociale}" />
+							<span class="text-danger" th:errors="${entreprise.raisonSociale}"></span>
+						</div>
+						<button class="btn btn-primary">Save</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
